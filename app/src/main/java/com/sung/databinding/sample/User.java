@@ -1,18 +1,12 @@
-package com.sung.databinding;
+package com.sung.databinding.sample;
 
-/**
- * Create by sung at 2020/8/24
- *
- * @desc:
- * @notice:
- */
 public class User {
     public String user;
     public int age;
 
-    public User(String user, int age) {
-        this.user = user;
-        this.age = age;
+    public User() {
+        setUser("张三");
+        setAge(20);
     }
 
     public int getAge() {

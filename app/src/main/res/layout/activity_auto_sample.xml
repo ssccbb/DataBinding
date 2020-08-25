@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <!--指定生成的binding类名-->
-    <data class=".SampleActivityBinding">
+    <data class=".AutoSampleActivityBinding">
         <!--指定该类中需要使用到的数据类型-->
-        <import type="com.sung.databinding.sample.User" />
+        <import type="com.sung.databinding.baseobservable.AutoUser" />
         <!--指定类型以及别名 别名可在binding类中使用setXXX(别名)设置-->
         <variable
             name="user"
-            type="com.sung.databinding.sample.User" />
+            type="com.sung.databinding.baseobservable.AutoUser" />
+        <!--指定OnClickListener-->
         <variable
             name="listener"
             type="android.view.View.OnClickListener" />
@@ -28,10 +29,21 @@
             android:layout_height="wrap_content"
             android:text="@{user.user,default=默认文案}"
             android:textColor="@android:color/holo_red_light"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="250dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_sex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@{user.sex,default=默认文案}"
+            android:textColor="@android:color/holo_red_light"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name" />
 
         <TextView
             android:id="@+id/tv_age"
@@ -42,16 +54,37 @@
             android:textColor="@android:color/holo_red_light"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_name" />
-
-        <Button
-            android:id="@+id/btn_refresh"
+            app:layout_constraintTop_toBottomOf="@+id/tv_sex" />
+        <TextView
+            android:id="@+id/tv_grade"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:onClick="@{listener::onClick}"
-            android:text="refresh"
+            android:text="@{String.valueOf(user.grade),default=默认文案}"
+            android:textColor="@android:color/holo_red_light"
             app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_age" />
+
+        <Button
+            android:id="@+id/btn_sex_refresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:onClick="@{listener::onClick}"
+            android:text="单独更新"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/btn_both_refresh"
+            app:layout_constraintTop_toBottomOf="@id/tv_age" />
+
+        <Button
+            android:id="@+id/btn_both_refresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:onClick="@{listener::onClick}"
+            android:text="全量更新"
+            app:layout_constraintLeft_toRightOf="@+id/btn_sex_refresh"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_age" />
 

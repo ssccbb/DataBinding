@@ -9,8 +9,33 @@
 
     <Button
         android:id="@+id/btn_sample"
-        android:text="sample"
+        android:text="基础示例"
         android:onClick="onClick"
+        android:minWidth="220dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btn_auto"
+        android:text="使用BaseObservable"
+        android:onClick="onClick"
+        android:minWidth="220dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btn_auto_field"
+        android:text="使用ObservableField"
+        android:onClick="onClick"
+        android:minWidth="220dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btn_auto_collection"
+        android:text="使用ObservableCollection"
+        android:onClick="onClick"
+        android:minWidth="220dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
