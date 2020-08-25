@@ -1,24 +1,25 @@
 package com.sung.databinding;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // init binding
-        MainActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-        // init user
-        UserModel user = new UserModel("张三", 20);
-        // set viewmodel
-        binding.setUser(user);
+        setContentView(R.layout.activity_main);
+    }
 
-        // get view
-        binding.tvAge.setText("11");
-        binding.tvName.setText("11");
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.btn_sample:
+                startActivity(new Intent(this, SampleActivity.class));
+                break;
+            default:
+                break;
+        }
     }
 }
