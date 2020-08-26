@@ -5,7 +5,7 @@ import com.sung.databinding.BR;
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 
-public class AutoUser extends BaseObservable {
+public class User1 extends BaseObservable {
     // 单个字段需要自动刷新ui添加@Bindable注解
     // public 修饰直接加在变量上
     // private 修饰加载public的get方法上
@@ -15,7 +15,7 @@ public class AutoUser extends BaseObservable {
     @Bindable
     public String sex;
 
-    public AutoUser() {
+    public User1() {
         setUser("张三");
         setAge(20);
         setSex("男");

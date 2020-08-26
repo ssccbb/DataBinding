@@ -5,7 +5,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.sung.databinding.baseobservable.AutoSampleActivity;
+import com.sung.databinding.baseobservable.SampleActivity1;
+import com.sung.databinding.observablecollection.SampleActivity2;
+import com.sung.databinding.observablefield.SampleActivity3;
 import com.sung.databinding.sample.SampleActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -22,11 +24,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(this, SampleActivity.class));
                 break;
             case R.id.btn_auto:
-                startActivity(new Intent(this, AutoSampleActivity.class));
+                startActivity(new Intent(this, SampleActivity1.class));
                 break;
             case R.id.btn_auto_field:
+                startActivity(new Intent(this, SampleActivity3.class));
                 break;
             case R.id.btn_auto_collection:
+                startActivity(new Intent(this, SampleActivity2.class));
                 break;
             default:
                 break;

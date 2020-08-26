@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <!--指定生成的binding类名-->
-    <data class=".AutoSampleActivityBinding">
+    <data class=".AutoSampleActivityBinding1">
         <!--指定该类中需要使用到的数据类型-->
-        <import type="com.sung.databinding.baseobservable.AutoUser" />
+        <import type="com.sung.databinding.baseobservable.User1" />
         <!--指定类型以及别名 别名可在binding类中使用setXXX(别名)设置-->
         <variable
             name="user"
-            type="com.sung.databinding.baseobservable.AutoUser" />
+            type="com.sung.databinding.baseobservable.User1" />
         <!--指定OnClickListener-->
         <variable
             name="listener"
@@ -22,6 +22,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".sample.SampleActivity">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="使用BaseObservable"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="20sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv_name"
@@ -75,7 +87,7 @@
             android:text="单独更新"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@+id/btn_both_refresh"
-            app:layout_constraintTop_toBottomOf="@id/tv_age" />
+            app:layout_constraintTop_toBottomOf="@id/tv_grade" />
 
         <Button
             android:id="@+id/btn_both_refresh"
@@ -86,7 +98,7 @@
             android:text="全量更新"
             app:layout_constraintLeft_toRightOf="@+id/btn_sex_refresh"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_age" />
+            app:layout_constraintTop_toBottomOf="@id/tv_grade" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
