@@ -1,9 +1,10 @@
-package com.sung.databinding.baseobservable;
+package com.sung.databinding.sample;
 
 import android.os.Bundle;
 import android.view.View;
 import com.sung.databinding.AutoSampleActivityBinding1;
 import com.sung.databinding.R;
+import com.sung.databinding.model.ObsUser;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -12,16 +13,14 @@ import androidx.databinding.DataBindingUtil;
  * @desc DataBinding自动更新使用范例
  * @notice 使用BaseObservable
  */
-public class SampleActivity1 extends AppCompatActivity implements View.OnClickListener {
+public class ObsSampleActivity extends AppCompatActivity implements View.OnClickListener {
     private AutoSampleActivityBinding1 mBinder;
-    private User1 mUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mBinder = DataBindingUtil.setContentView(this, R.layout.activity_sample1);
-        mUser = new User1();
-        mBinder.setUser(mUser);
+        mBinder = DataBindingUtil.setContentView(this, R.layout.activity_sample_obs);
+        mBinder.setUser(new ObsUser());
         mBinder.setListener(this);
     }
 
@@ -29,11 +28,11 @@ public class SampleActivity1 extends AppCompatActivity implements View.OnClickLi
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_sex_refresh:
-                mUser.setSex(mUser.getSex().equals("男") ? "女" : "男");
+                mBinder.getUser().setSex(mBinder.getUser().getSex().equals("男") ? "女" : "男");
                 break;
             case R.id.btn_both_refresh:
-                mUser.setGrade((int) ((Math.random() * 100) + 1));
-                mUser.setAge((int) ((Math.random() * 100) + 1));
+                mBinder.getUser().setGrade((int) ((Math.random() * 100) + 1));
+                mBinder.getUser().setAge((int) ((Math.random() * 100) + 1));
                 break;
             default:
                 break;

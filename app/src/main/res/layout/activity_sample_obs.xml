@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <!--指定生成的binding类名-->
-    <data class=".SampleActivityBinding3">
+    <data class=".AutoSampleActivityBinding1">
         <!--指定该类中需要使用到的数据类型-->
-        <import type="com.sung.databinding.observablefield.User3" />
+        <import type="com.sung.databinding.model.ObsUser" />
         <!--指定类型以及别名 别名可在binding类中使用setXXX(别名)设置-->
         <variable
             name="user"
-            type="com.sung.databinding.observablefield.User3" />
+            type="com.sung.databinding.model.ObsUser" />
         <!--指定OnClickListener-->
         <variable
             name="listener"
@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:gravity="center"
-            android:text="使用ObservableField"
+            android:text="使用BaseObservable"
             android:textColor="@android:color/darker_gray"
             android:textSize="20sp"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -80,15 +80,26 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_age" />
 
         <Button
-            android:id="@+id/btn_both_refresh"
+            android:id="@+id/btn_sex_refresh"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:onClick="@{listener::onClick}"
-            android:text="全量更新"
+            android:text="single"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_grade" />
+
+        <Button
+            android:id="@+id/btn_both_refresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:onClick="@{listener::onClick}"
+            android:text="both"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_sex_refresh" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -1,13 +1,16 @@
 package com.sung.databinding;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.sung.databinding.baseobservable.SampleActivity1;
-import com.sung.databinding.observablecollection.SampleActivity2;
-import com.sung.databinding.observablefield.SampleActivity3;
+import com.sung.databinding.sample.BindingAdapterSampleActivity;
+import com.sung.databinding.sample.MutualSampleActivity;
+import com.sung.databinding.sample.ObsSampleActivity;
+import com.sung.databinding.sample.CollectionSampleActivity;
+import com.sung.databinding.sample.FieldSampleActivity;
 import com.sung.databinding.sample.SampleActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -21,16 +24,28 @@ public class MainActivity extends AppCompatActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_sample:
+                // 基础使用示例
                 startActivity(new Intent(this, SampleActivity.class));
                 break;
             case R.id.btn_auto:
-                startActivity(new Intent(this, SampleActivity1.class));
+                // 自动订阅使用示例
+                startActivity(new Intent(this, ObsSampleActivity.class));
                 break;
             case R.id.btn_auto_field:
-                startActivity(new Intent(this, SampleActivity3.class));
+                // 基于ObservableField的自动订阅使用示例
+                startActivity(new Intent(this, FieldSampleActivity.class));
                 break;
             case R.id.btn_auto_collection:
-                startActivity(new Intent(this, SampleActivity2.class));
+                // 基于ObservableCollection的自动订阅使用示例
+                startActivity(new Intent(this, CollectionSampleActivity.class));
+                break;
+            case R.id.btn_mutual:
+                // 双向绑定示例
+                startActivity(new Intent(this, MutualSampleActivity.class));
+                break;
+                case R.id.btn_binding_adapter:
+                // BindingAdapter示例
+                startActivity(new Intent(this, BindingAdapterSampleActivity.class));
                 break;
             default:
                 break;

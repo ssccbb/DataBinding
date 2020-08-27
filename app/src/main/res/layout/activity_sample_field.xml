@@ -4,27 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <!--指定生成的binding类名-->
-    <data class=".AutoSampleActivityBinding2">
-
-        <import type="androidx.databinding.ObservableList" />
-
-        <import type="androidx.databinding.ObservableMap" />
+    <data class=".SampleActivityBinding3">
+        <!--指定该类中需要使用到的数据类型-->
+        <import type="com.sung.databinding.model.FieldUser" />
         <!--指定类型以及别名 别名可在binding类中使用setXXX(别名)设置-->
-        <!--注意这个地方，一定要用 "&lt;"和 "&gt;"（html转义字符），这里不支持尖括号-->
         <variable
-            name="list"
-            type="ObservableList&lt;String&gt;" />
-        <variable
-            name="map"
-            type="ObservableMap&lt;String,String&gt;" />
-        <!--定义展示list的index-->
-        <variable
-            name="index"
-            type="Integer" />
-        <!--定义展示map的key-->
-        <variable
-            name="key"
-            type="String" />
+            name="user"
+            type="com.sung.databinding.model.FieldUser" />
         <!--指定OnClickListener-->
         <variable
             name="listener"
@@ -42,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:gravity="center"
-            android:text="使用ObservableCollection"
+            android:text="使用ObservableField"
             android:textColor="@android:color/darker_gray"
             android:textSize="20sp"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -54,7 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="250dp"
-            android:text="@{map[key],default=默认文案}"
+            android:text="@{user.user,default=默认文案}"
             android:textColor="@android:color/holo_red_light"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -65,11 +51,33 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="@{list[index],default=默认文案}"
+            android:text="@{user.sex,default=默认文案}"
             android:textColor="@android:color/holo_red_light"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_name" />
+
+        <TextView
+            android:id="@+id/tv_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@{String.valueOf(user.age),default=默认文案}"
+            android:textColor="@android:color/holo_red_light"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_sex" />
+
+        <TextView
+            android:id="@+id/tv_grade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@{String.valueOf(user.grade),default=默认文案}"
+            android:textColor="@android:color/holo_red_light"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_age" />
 
         <Button
             android:id="@+id/btn_both_refresh"
@@ -77,10 +85,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:onClick="@{listener::onClick}"
-            android:text="全量更新"
+            android:text="refresh"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_sex" />
+            app:layout_constraintTop_toBottomOf="@id/tv_grade" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

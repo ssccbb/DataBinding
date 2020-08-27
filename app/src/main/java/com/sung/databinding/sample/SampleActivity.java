@@ -5,10 +5,10 @@ import androidx.databinding.DataBindingUtil;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 import com.sung.databinding.R;
 import com.sung.databinding.SampleActivityBinding;
+import com.sung.databinding.model.User;
 
 /**
  * DataBinding简单使用范例

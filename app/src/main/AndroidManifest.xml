@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.sung.databinding">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,9 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".sample.SampleActivity" />
-        <activity android:name=".baseobservable.SampleActivity1" />
-        <activity android:name=".observablecollection.SampleActivity2" />
-        <activity android:name=".observablefield.SampleActivity3" />
+        <activity android:name=".sample.ObsSampleActivity" />
+        <activity android:name=".sample.CollectionSampleActivity" />
+        <activity android:name=".sample.FieldSampleActivity" />
+        <activity android:name=".sample.MutualSampleActivity" />
+        <activity android:name=".sample.BindingAdapterSampleActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

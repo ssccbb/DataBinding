@@ -1,4 +1,4 @@
-package com.sung.databinding.observablecollection;
+package com.sung.databinding.sample;
 
 import android.os.Bundle;
 import android.view.View;
@@ -12,26 +12,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ObservableArrayList;
 import androidx.databinding.ObservableArrayMap;
-import androidx.databinding.ObservableList;
-import androidx.databinding.ObservableMap;
 
-public class SampleActivity2 extends AppCompatActivity implements View.OnClickListener {
+public class CollectionSampleActivity extends AppCompatActivity implements View.OnClickListener {
     private AutoSampleActivityBinding2 mBinder;
-    private ObservableList<String> mList;
-    private ObservableMap<String, String> mMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mBinder = DataBindingUtil.setContentView(this, R.layout.activity_sample2);
+        mBinder = DataBindingUtil.setContentView(this, R.layout.activity_sample_collection);
         mBinder.setListener(this);
 
-        mMap = new ObservableArrayMap<>();
+        ObservableArrayMap<String,String> mMap = new ObservableArrayMap<>();
         mMap.put("name", "sung");
         mMap.put("age", "22");
         mMap.put("grade", "level12");
         mBinder.setMap(mMap);
-        mList = new ObservableArrayList<>();
+        ObservableArrayList<String> mList = new ObservableArrayList<>();
         mList.add("aaa");
         mList.add("bbb");
         mList.add("ccc");
@@ -45,7 +41,7 @@ public class SampleActivity2 extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View view) {
-        mMap.put("name", "sung" + new Random().nextInt(100));
-        mList.add(0,"xxx" + new Random().nextInt(100));
+        mBinder.getMap().put("name", "sung" + new Random().nextInt(100));
+        mBinder.getList().add(0,"xxx" + new Random().nextInt(100));
     }
 }

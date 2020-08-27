@@ -1,4 +1,4 @@
-package com.sung.databinding.sample;
+package com.sung.databinding.model;
 
 public class User {
     public String user;
