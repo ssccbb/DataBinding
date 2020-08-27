@@ -40,12 +40,12 @@ public class SampleActivity2 extends AppCompatActivity implements View.OnClickLi
         //绑定展示map的key
         mBinder.setKey("name");
         //绑定展示list的index
-        mBinder.setIndex(mList.size() - 1);
+        mBinder.setIndex(0);
     }
 
     @Override
     public void onClick(View view) {
         mMap.put("name", "sung" + new Random().nextInt(100));
-        mList.add("xxx" + new Random().nextInt(100));
+        mList.add(0,"xxx" + new Random().nextInt(100));
     }
 }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <!--指定生成的binding类名-->
-    <data class=".AutoSampleActivityBinding3">
+    <data class=".SampleActivityBinding3">
         <!--指定该类中需要使用到的数据类型-->
         <import type="com.sung.databinding.observablefield.User3" />
         <!--指定类型以及别名 别名可在binding类中使用setXXX(别名)设置-->

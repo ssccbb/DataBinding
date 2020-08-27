@@ -1,16 +1,19 @@
 package com.sung.databinding.observablefield;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
-import com.sung.databinding.AutoSampleActivityBinding3;
+import com.sung.databinding.BR;
+import com.sung.databinding.SampleActivityBinding3;
 import com.sung.databinding.R;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.databinding.Observable;
 
 public class SampleActivity3 extends AppCompatActivity implements View.OnClickListener {
-    private AutoSampleActivityBinding3 mBinder;
+    private SampleActivityBinding3 mBinder;
     private User3 mUser;
 
     @Override
@@ -20,6 +23,24 @@ public class SampleActivity3 extends AppCompatActivity implements View.OnClickLi
         mUser = new User3();
         mBinder.setUser(mUser);
         mBinder.setListener(this);
+
+        mBinder.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
+            @Override
+            public void onPropertyChanged(Observable sender, int propertyId) {
+                if (propertyId == BR.user) {
+                    Log.d(SampleActivity3.class.getSimpleName(), "BR.user");
+                }
+                if (propertyId == BR.grade) {
+                    Log.d(SampleActivity3.class.getSimpleName(), "BR.grade");
+                }
+                if (propertyId == BR.age) {
+                    Log.d(SampleActivity3.class.getSimpleName(), "BR.age");
+                }
+                if (propertyId == BR.sex) {
+                    Log.d(SampleActivity3.class.getSimpleName(), "BR.sex");
+                }
+            }
+        });
     }
 
     @Override

@@ -26,6 +26,7 @@ public class User3 {
             return;
         }
         this.grade.set("level:" + grade);
+        this.grade.notifyChange();
     }
 
     public String getSex() {
@@ -38,6 +39,7 @@ public class User3 {
             return;
         }
         this.sex.set(sex);
+        this.sex.notifyChange();
     }
 
     public int getAge() {
@@ -50,6 +52,7 @@ public class User3 {
             return;
         }
         this.age.set(age);
+        this.age.notifyChange();
     }
 
     public String getUser() {
